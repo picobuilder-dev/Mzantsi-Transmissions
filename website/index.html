@@ -24,6 +24,12 @@
             <a href="#contact">Contact</a>
         </div>
 
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
         <a href="tel:0118685130" class="nav-call">
             Call Now
         </a>
@@ -59,8 +65,7 @@
             </div>
         </section>
 
-                </section>
-
+                
         <section class="about" id="about">
             <div class="about-content">
 
@@ -87,12 +92,16 @@
                         <span>Transmission repair, servicing and testing.</span>
                     </div>
                 </div>
+                <figure class="about-image">
+                    <img src="images/about-premises.jpg"
+                         alt="Mzantsi Transmissions premises with company signage"
+                         loading="lazy">
+                </figure>
 
             </div>
         </section>
 
-                </section>
-
+               
         <section class="services" id="services">
             <div class="services-content">
 
@@ -147,12 +156,27 @@
                         </div>
                     </article>
 
+                                        <article class="service-item">
+                        <span class="service-number">05</span>
+                        <div>
+                            <h3>Second-Hand Transmissions</h3>
+                            <p>
+                                Mzantsi also purchases second-hand transmissions.
+                            </p>
+                        </div>
+                    </article>
+
+
                 </div>
+                                <figure class="services-image">
+                    <img src="images/services-gearbox.jpg"
+                         alt="Heavy-duty transmission mounted on an orange workshop rig"
+                         loading="lazy">
+                </figure>
 
-            </div>S
+            </div>
         </section>
-                </section>
-
+                
         <section class="brands" id="brands">
             <div class="brands-content">
 
@@ -184,7 +208,7 @@
 
             </div>
         </section>
-        </section>
+        
 
         <section class="expertise" id="expertise">
             <div class="expertise-content">
@@ -248,7 +272,8 @@
                     </p>
                 </div>
 
-                <div class="contact-details">
+               
+                                <div class="contact-details">
 
                     <div class="contact-item">
                         <span class="contact-label">Phone</span>
@@ -257,21 +282,17 @@
 
                     <div class="contact-item">
                         <span class="contact-label">WhatsApp</span>
-                        <a href="https://wa.me/27716845784?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Mzantsi%20Transmissions%27%20services." class="button button-secondary">
-    WhatsApp
-</a>
+                        <a href="https://wa.me/27716845784?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Mzantsi%20Transmissions%27%20services.">071 684 5784</a>
                     </div>
 
                     <div class="contact-item">
                         <span class="contact-label">Email</span>
-                        <a href="mailto:info@gearboxes.me">
-                            info@gearboxes.me
-                        </a>
+                        <a href="mailto:info@gearboxes.me">info@gearboxes.me</a>
                     </div>
 
                     <div class="contact-item">
                         <span class="contact-label">Location</span>
-                        <span>Alrode South, Alberton</span>
+                        <span>6 Van der Bijl Street, Alrode South, Alberton</span>
                     </div>
 
                 </div>
@@ -316,14 +337,36 @@
     </div>
 
 </footer> 
-    <a
-        href="https://wa.me/27716845784"
+        <a
+        href="https://wa.me/27716845784?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Mzantsi%20Transmissions%27%20services."
         class="floating-whatsapp"
         aria-label="Contact Mzantsi Transmissions on WhatsApp"
     >
         <span aria-hidden="true">WA</span>
     </a>
 
+    <script>
+        const navToggle = document.querySelector(".nav-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        navToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("is-open");
+
+            navToggle.setAttribute("aria-expanded", isOpen);
+            navToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation" : "Open navigation"
+            );
+        });
+
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.setAttribute("aria-label", "Open navigation");
+            });
+        });
+    </script>
 
 </body>
 </html>
